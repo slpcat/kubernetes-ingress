@@ -110,7 +110,7 @@ func main() {
 	if err != nil {
 		glog.Fatalf("Error creating TemplateExecutor: %v", err)
 	}
-	ngxc, _ := nginx.NewNginxController("/etc/nginx/", local, *healthStatus, nginxConfTemplatePath, nginxIngressTemplatePath)
+	ngxc := nginx.NewNginxController("/etc/nginx/", local)
 
 	if *defaultServerSecret != "" {
 		ns, name, err := controller.ParseNamespaceName(*defaultServerSecret)
